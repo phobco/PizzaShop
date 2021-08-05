@@ -1,6 +1,6 @@
 function something()
 {
-	var x = window.localStorage.getItem('bbb');
+	var x = window.localStorage.getItem('bbb'); // x = hh['bbb']
 
 	x = x * 1 + 1;
 
