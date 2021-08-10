@@ -1,32 +1,41 @@
-<div class="row">
+<body>
 
-	<% @products.each do |p| %>
-	<div class="col-md-3">
-		<div>
-			<%= p.title %>
-		</div>
+	<div class="row">
 
-		<div>
-			<img src="<%= p.path_to_image %>"  width="150" height"150"/>
-		</div>
-	
-		<div>
-			<%= p.description %>
-		</div>
-	
+		<% @products.each do |p| %>
+		<div class="col-md-3">
+			<div>
+				<%= p.title %>
+			</div>
 
-		<div>
-			Size: <%= p.size %> cm
-		</div>
-
-		<div>
-			Price: <%= p.price %> rub
-		</div>
+			<div>
+				<img src="<%= p.path_to_image %>"  width="150" height"150"/>
+			</div>
 		
-		<div>
-			<button type="button" class="btn btn-success" onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
-	    </div>
-	</div>
-	<% end %>
+			<div>
+				<%= p.description %>
+			</div>
+		
 
-</div>
+			<div>
+				Size: <%= p.size %> cm
+			</div>
+
+			<div>
+				Price: <%= p.price %> rub
+			</div>
+			
+			<div>
+			   <button type="button" class="btn btn-success" onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
+		       <button type="button" class="btn btn-danger" onclick="delete_product(<%= p.id %>)">Delete</button>
+		    </div>
+			<br />
+		    <div>
+		    	<button type="button" class="btn btn-info" onclick="info(<%= p.id %>)">Info</button>
+		    </div>
+
+		</div>
+		<% end %>
+
+	</div>
+</body>
