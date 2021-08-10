@@ -20,3 +20,7 @@ end
 get '/menu' do
   erb :menu
 end
+
+get '/cart' do
+  erb :cart
+end
