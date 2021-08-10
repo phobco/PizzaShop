@@ -1,1 +1,26 @@
-<h3>Goods in cart</h3>
+<h3>Cart</h3>
+
+<body>
+
+<div>Products in cart: <span id="cart"></span></div>
+
+<script type="text/javascript">
+	var result = 0;
+
+	for (var i = 0; i < localStorage.length; i++)
+		{
+
+		    var x = localStorage.getItem(localStorage.key(i));
+
+			result = result * 1 + x * 1;
+		}
+		
+	document.getElementById("cart").innerHTML=result;		
+
+</script>	
+
+
+
+
+
+</body>

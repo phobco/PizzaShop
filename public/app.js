@@ -57,6 +57,11 @@ function delete_product(id)
 {
 	var key = 'product_' + id;
 	var value = window.localStorage.getItem(key);
-	value = value * 1 - 1;
+	
+	if (value != 0)
+	{
+		value = value * 1 - 1;	
+	}
+	
 	window.localStorage.setItem(key, value);
 }
