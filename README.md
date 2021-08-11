@@ -1,4 +1,4 @@
-sinatra-bootstrap-clean
+PizzaShop
 =======================
 
-Cleaned version of https://github.com/bootstrap-ruby/sinatra-bootstrap
+Simple application on Sinatra with cart functions
