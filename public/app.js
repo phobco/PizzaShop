@@ -28,7 +28,8 @@ function cart_get_number_of_items()
 	for (var i = 0; i < localStorage.length; i++)
 	{
 
-		var value = window.localStorage.getItem(localStorage.key(i));
+		var key = localStorage.key(i);
+		var value = window.localStorage.getItem(key);
 		
 		if (key.indexOf('product_') == 0)
 		{
