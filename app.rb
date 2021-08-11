@@ -21,6 +21,6 @@ get '/menu' do
   erb :menu
 end
 
-get '/cart' do
+post '/cart' do
   erb :cart
 end
