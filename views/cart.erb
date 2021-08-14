@@ -1,62 +1,66 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-	  <th scope="col">Size</th>
-      <th scope="col">Amount</th>
-	  <th scope="col">Price</th>
-	</tr>
-  </thead>
-  <tbody>
-    <% @products.each do |p| %> 
+<body>
+	<table class="table">
+	<thead>
 		<tr>
-		<th scope="row"><%= p.id %></th>
-		<td><%= p.title %></td>
-		<td><%= p.description %>  </td>
-		<td><%= (p.size).to_i %> cm</td>
-		<td>
-			<button type="button" class="btn btn-sm" onclick="delete_product_in_table(<%= p.id %>)" >-</button>
-			<span id="<%= p.id %>"></span>
-			<button type="button" class="btn btn-sm" onclick="add_product_in_table(<%= p.id %>)">+</button>
+		<th scope="col">#</th>
+		<th scope="col">Name</th>
+		<th scope="col">Description</th>
+		<th scope="col">Size</th>
+		<th scope="col">Amount</th>
+		<th scope="col">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |p| %> 
+			<tr>
+			<th scope="row"><%= p.id %></th>
+			<td><%= p.title %></td>
+			<td><%= p.description %>  </td>
+			<td><%= (p.size).to_i %> cm</td>
+			<td>
+				<button type="button" class="btn btn-sm" onclick="delete_product_in_table(<%= p.id %>)" >-</button>
+				<span id="<%= p.id %>"></span>
+				<button type="button" class="btn btn-sm" onclick="add_product_in_table(<%= p.id %>)">+</button>
+			</td>
+			<td><%= (p.price).to_i %> RUB</td>
+			<tr>
+		<% end %>
+		<td colspan="4"></td>
+		<td >
+			<div style="float:right; width:25%;"><b>Total:</b></div>
 		</td>
-		<td><%= (p.price).to_i %> RUB</td>
-		<tr>
-	<% end %>
-      <td colspan="4"></td>
-      <td >
-	  	<div style="float:right; width:25%;"><b>Total:</b></div>
-	  </td>
-	  <td><b>1200 RUB</b></td>
-    </tr>
-  </tbody>
-</table>
-<br />
-<h3>Confirmation of an order:</h3>
-<br />
-<form action="/order" method="POST" role="form">
-  <div>
-    <label class="form-label">Your name</label>
-    <input type="text" class="form-control" style="width: 400px;" maxlength="70">
-  </div>
-  <div>
-    <label class="form-label">Phone number</label>
-    <input type="text" class="form-control" style="width: 400px;" maxlength="12">
-  </div>
-  <div>
-    <label for="exampleInputPassword1" class="form-label">Delivery adress</label>
-    <input type="text" class="form-control" style="width: 400px;" maxlength="200">
-  </div>
-  <br />
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+		<td><b>1200 RUB</b></td>
+		</tr>
+	</tbody>
+	</table>
 
-<script>
-$(function() 
-{
-	update_orders_button();
-	cart_get_number_of_product();
-	
-});
-</script>
+	<br />
+		<h3>Confirmation of an order:</h3>
+	<br />
+
+	<form action="/order" method="POST" role="form">
+		<div>
+			<label class="form-label">Your name</label>
+			<input type="text" class="form-control" style="width: 400px;" maxlength="70">
+		</div>
+		<div>
+			<label class="form-label">Phone number</label>
+			<input type="text" class="form-control" style="width: 400px;" maxlength="12">
+		</div>
+		<div>
+			<label for="exampleInputPassword1" class="form-label">Delivery adress</label>
+			<input type="text" class="form-control" style="width: 400px;" maxlength="200">
+		</div>
+		<br />
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+	<script>
+	$(function() 
+	{
+		update_orders_button();
+		cart_get_number_of_product();
+		
+	});
+	</script>
+</body>

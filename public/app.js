@@ -124,3 +124,19 @@ function add_product_in_table(id)
 	cart_get_number_of_product();	
 	update_orders_button();
 }
+
+// НЕ РАБОТАЕТ!!!
+
+function cart_empty()
+{
+	for (var i = 0; i < localStorage.length; i++)
+	{
+		var key = window.localStorage.key(i);
+		var value = window.localStorage.getItem(key);
+		
+		if (key.indexOf('product_') == 0)
+		{
+			window.localStorage.setItem(key, 0);
+		}
+	}	
+}
