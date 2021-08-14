@@ -17,9 +17,9 @@
 		<td><%= p.description %>  </td>
 		<td><%= (p.size).to_i %> cm</td>
 		<td>
-			<button type="button "class="btn btn-sm">-</button>
+			<button type="button" class="btn btn-sm" onclick="delete_product_in_table(<%= p.id %>)" >-</button>
 			<span id="<%= p.id %>"></span>
-			<button class="btn btn-sm">+</button>
+			<button type="button" class="btn btn-sm" onclick="add_product_in_table(<%= p.id %>)">+</button>
 		</td>
 		<td><%= (p.price).to_i %> RUB</td>
 		<tr>

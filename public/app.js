@@ -72,10 +72,55 @@ function cart_get_number_of_items()
 		
 }
 
-function cart_get_number_of_product(id)
+// получаем id продукта со страницы
+
+function get_id(id)
 {
 	var key = 'product_' + id;
 	var value = window.localStorage.getItem(key);
 
+	if (value == null)
+	{
+		value = 0;
+	}
+
 	return value;
+}
+
+// получаем количество продуктов для каждого товара на странице
+
+function cart_get_number_of_product()
+{	
+	for (var i = 0; i < 4; i++)
+	{	
+	$('#' + i).text(get_id(i));
+	}
+}
+
+// - button in table
+
+function delete_product_in_table(id)
+{
+	var key = 'product_' + id;
+	var value = window.localStorage.getItem(key);
+	
+	if (value != 0)
+	{
+		value = value - 1;
+		window.localStorage.setItem(key, value);
+	}
+	cart_get_number_of_product();
+	update_orders_button();	
+}
+
+// + button in table
+function add_product_in_table(id)
+{
+	var key = 'product_' + id;
+	var value = window.localStorage.getItem(key);
+	
+	value = value * 1 + 1;
+	window.localStorage.setItem(key, value);
+	cart_get_number_of_product();	
+	update_orders_button();
 }
