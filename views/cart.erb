@@ -17,7 +17,9 @@
 		<td><%= p.description %>  </td>
 		<td><%= (p.size).to_i %> cm</td>
 		<td>
+			<button type="button "class="btn btn-sm">-</button>
 			<span id="<%= p.id %>"></span>
+			<button class="btn btn-sm">+</button>
 		</td>
 		<td><%= (p.price).to_i %> RUB</td>
 		<tr>
@@ -35,10 +37,7 @@
 $(function() 
 {
 	update_orders_button();
-	for (var i = 0; i < 4; i++)
-	{	
-	$('#' + i).text(cart_get_number_of_product(i));
-	}
+	cart_get_number_of_product();
 	
 });
 </script>
