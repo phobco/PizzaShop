@@ -6,32 +6,25 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
-      <th scope="col">Price</th>
-    </tr>
+	  <th scope="col">Size</th>
+      <th scope="col">Amount</th>
+	  <th scope="col">Price</th>
+	</tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Hawaiian</td>
-      <td>This is Hawaiian pizza</td>
-      <td>350 RUB</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Pepperoni</td>
-      <td>Nice Pepperoni pizza</td>
-      <td>450 RUB</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Vegetarian</td>
-      <td>Amazing Vegetarian pizza</td>
-      <td>400 RUB</td>
-    </tr>
+    <% @products.each do |p| %>
 	<tr>
-      <td colspan="2"></td>
+      <th scope="row">1</th>
+      <td><%= p.title %></td>
+      <td><%= p.description %>  </td>
+      <td><%= p.size%> cm</td>
+	  <td>Тут кол-во</td>
+	  <td><%= p.price %> RUB</td>
+	<tr>
+	<% end %>
+      <td colspan="4"></td>
       <td >
-	  	<div style="float:right; width:15%;"><b>Total:</b></div>
+	  	<div style="float:right; width:25%;"><b>Total:</b></div>
 	  </td>
 	  <td><b>1200 RUB</b></td>
     </tr>
