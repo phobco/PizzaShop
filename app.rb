@@ -10,6 +10,9 @@ class Product < ActiveRecord::Base
 end
 
 class Order < ActiveRecord::Base
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :adress, presence: true
 end
 
 before do
@@ -24,7 +27,8 @@ get '/menu' do
   erb :menu
 end
 
-post '/cart' do
+get '/cart' do
+  @c = Order.new
   erb :cart
 end
 
@@ -33,7 +37,7 @@ post '/order' do
   if @c.save
     erb :order
   else
-    @errors = @c.errors.full_messages.first
+    @error = @c.errors.full_messages.first
     erb :cart
   end
 end

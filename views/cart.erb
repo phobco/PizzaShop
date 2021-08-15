@@ -41,15 +41,15 @@
 	<form action="/order" method="POST" role="form">
 		<div class="form-group">
 			<label class="form-label">Your name</label>
-			<input type="text" name="order[name]" class="form-control" style="width: 400px;" maxlength="70">
+			<input type="text" name="order[name]" class="form-control" value="<%= @c.name %>" style="width: 400px;" maxlength="70">
 		</div>
 		<div class="form-group">
 			<label class="form-label">Phone number</label>
-			<input type="text" name="order[phone]" class="form-control" style="width: 400px;" maxlength="12">
+			<input type="text" name="order[phone]" class="form-control" value="<%= @c.phone %>" style="width: 400px;" maxlength="12">
 		</div>
 		<div class="form-group">
 			<label  class="form-label">Delivery adress</label>
-			<input type="text" name="order[adress]" class="form-control" style="width: 400px;" maxlength="200">
+			<input type="text" name="order[adress]" class="form-control" value="<%= @c.adress %>" style="width: 400px;" maxlength="200">
 		</div>
 		<div class="form-group">
 			<input type="hidden" id="orders_input" name="order[products_list]" style="width: 400px;" maxlength="200">
