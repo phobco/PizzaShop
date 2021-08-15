@@ -9,7 +9,8 @@ function add_to_cart(id)
 	x = x * 1 + 1;
 	
 	window.localStorage.setItem(key, x);
-
+	
+	cart_get_number_of_product();
 	update_orders_input();
 	update_orders_button();
 }
@@ -113,30 +114,18 @@ function delete_product_in_table(id)
 	update_orders_button();	
 }
 
-// + button in table
-function add_product_in_table(id)
-{
-	var key = 'product_' + id;
-	var value = window.localStorage.getItem(key);
-	
-	value = value * 1 + 1;
-	window.localStorage.setItem(key, value);
-	cart_get_number_of_product();	
-	update_orders_button();
-}
-
 // НЕ РАБОТАЕТ!!!
 
 function cart_empty()
 {
-	for (var i = 0; i < localStorage.length; i++)
+	for (var i = 0; i < 5; i++)
 	{
 		var key = window.localStorage.key(i);
 		var value = window.localStorage.getItem(key);
 		
-		if (key.indexOf('product_') == 0)
+		if (value > 0)
 		{
-			window.localStorage.setItem(key, 0);
+			localStorage.clear();
 		}
 	}	
 }
