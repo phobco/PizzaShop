@@ -111,7 +111,8 @@ function delete_product_in_table(id)
 		window.localStorage.setItem(key, value);
 	}
 	cart_get_number_of_product();
-	update_orders_button();	
+	update_orders_button();
+	update_orders_input();	
 }
 
 // НЕ РАБОТАЕТ!!!

@@ -29,5 +29,11 @@ post '/cart' do
 end
 
 post '/order' do
-  erb :order
+  @c = Order.new params[:order]
+  if @c.save
+    erb :order
+  else
+    @errors = @c.errors.full_messages.first
+    erb :cart
+  end
 end

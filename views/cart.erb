@@ -41,19 +41,18 @@
 	<form action="/order" method="POST" role="form">
 		<div class="form-group">
 			<label class="form-label">Your name</label>
-			<input type="text" class="form-control" style="width: 400px;" maxlength="70">
+			<input type="text" name="order[name]" class="form-control" style="width: 400px;" maxlength="70">
 		</div>
 		<div class="form-group">
 			<label class="form-label">Phone number</label>
-			<input type="text" class="form-control" style="width: 400px;" maxlength="12">
+			<input type="text" name="order[phone]" class="form-control" style="width: 400px;" maxlength="12">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1" class="form-label">Delivery adress</label>
-			<input type="text" class="form-control" style="width: 400px;" maxlength="200">
+			<label  class="form-label">Delivery adress</label>
+			<input type="text" name="order[adress]" class="form-control" style="width: 400px;" maxlength="200">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1" class="form-label">Delivery adress</label>
-			<input type="hidden" class="form-control" style="width: 400px;" maxlength="200">
+			<input type="hidden" id="orders_input" name="order[products_list]" style="width: 400px;" maxlength="200">
 		</div>
 		<button type="submit" class="btn btn-primary" onclick="cart_empty()">Submit</button>
 	</form>
@@ -61,6 +60,7 @@
 	<script>
 	$(function() 
 	{
+		update_orders_input();
 		update_orders_button();
 		cart_get_number_of_product();
 	});
