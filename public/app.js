@@ -1,4 +1,4 @@
-// добавление в корзину
+// Adds a product to  the cart
 
 function add_to_cart(id) 
 {
@@ -14,8 +14,6 @@ function add_to_cart(id)
 	update_orders_input();
 	update_orders_button();
 }
-
-// сохранение списка заказов в виде строки вида 'product_=value,...'
 
 function cart_get_orders() 
 {
@@ -36,24 +34,6 @@ function cart_get_orders()
 	return string;
 }
 
-// обновление списка заказов
-
-function update_orders_input() 
-{
-	var orders = cart_get_orders();
-	$('#orders_input').val(orders);
-}
-
-// обновление кнопки корзины
-
-function update_orders_button() 
-{
-	var orders = 'Cart (' + cart_get_number_of_items() + ')';
-	$('#orders_total').val(orders);
-}
-
-// общее количество товаров в корзине
-
 function cart_get_number_of_items() 
 {
 	var result = 0;
@@ -73,32 +53,17 @@ function cart_get_number_of_items()
 		
 }
 
-// получаем id продукта со страницы
+// Adds number for each product in table
 
-function get_id(id)
-{
-	var key = 'product_' + id;
-	var value = window.localStorage.getItem(key);
-
-	if (value == null)
-	{
-		value = 0;
-	}
-
-	return value;
-}
-
-// получаем количество продуктов для каждого товара на странице
-
-function cart_get_number_of_product()
+function cart_get_number_of_product()   
 {	
-	for (var i = 0; i < 4; i++)
+	var n = 4;							// n - the number of all products in the store (+1)
+	for (var i = 0; i < n; i++)
 	{	
 	$('#' + i).text(get_id(i));
 	}
 }
 
-// - button in table
 
 function delete_product_in_table(id)
 {
@@ -115,7 +80,6 @@ function delete_product_in_table(id)
 	update_orders_input();	
 }
 
-// НЕ РАБОТАЕТ!!!
 
 function cart_empty()
 {
@@ -129,4 +93,31 @@ function cart_empty()
 			localStorage.clear();
 		}
 	}	
+}
+
+
+function get_id(id)
+{
+	var key = 'product_' + id;
+	var value = window.localStorage.getItem(key);
+
+	if (value == null)
+	{
+		value = 0;
+	}
+
+	return value;
+}
+
+function update_orders_input() 
+{
+	var orders = cart_get_orders();
+	$('#orders_input').val(orders);
+}
+
+
+function update_orders_button() 
+{
+	var orders = 'Cart (' + cart_get_number_of_items() + ')';
+	$('#orders_total').val(orders);
 }
