@@ -20,7 +20,7 @@
 			<td>
 				<button type="button" class="btn btn-sm" onclick="delete_product_in_table(<%= p.id %>)" >-</button>
 				<span id="<%= p.id %>"></span>
-				<button type="button" class="btn btn-sm" onclick="add_product_in_table(<%= p.id %>)">+</button>
+				<button type="button" class="btn btn-sm" onclick="add_to_cart(<%= p.id %>)">+</button>
 			</td>
 			<td><%= (p.price).to_i %> RUB</td>
 			<tr>
@@ -52,7 +52,7 @@
 			<input type="text" class="form-control" style="width: 400px;" maxlength="200">
 		</div>
 		<br />
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary" onclick="cart_empty()">Submit</button>
 	</form>
 
 	<script>
@@ -60,7 +60,6 @@
 	{
 		update_orders_button();
 		cart_get_number_of_product();
-		
 	});
 	</script>
 </body>
