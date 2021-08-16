@@ -57,7 +57,7 @@ function cart_get_number_of_items()
 
 function cart_get_number_of_product()   
 {	
-	var n = 4;							// n - the number of all products in the store (+1)
+	var n = 9;							// n - the number of all products in the store (+1)
 	for (var i = 0; i < n; i++)
 	{	
 	$('#' + i).text(get_id(i));
@@ -70,6 +70,11 @@ function delete_product_in_table(id)
 	var key = 'product_' + id;
 	var value = window.localStorage.getItem(key);
 	
+	if (value == null)
+	{
+		value = 0;
+	}
+
 	if (value != 0)
 	{
 		value = value - 1;

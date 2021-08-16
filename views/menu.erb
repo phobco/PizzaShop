@@ -20,6 +20,8 @@
 	</div>		
 	<div>
 	<button type="button" class="btn btn-success" onclick="add_to_cart(<%= p.id %>)">Add to cart</button>
+	<span id="<%= p.id %>"></span>
+	<button type="button" class="btn btn-sm" onclick="delete_product_in_table(<%= p.id %>)" >Remove</button>
 	</div>
 	<br />
 	</div>	
@@ -31,6 +33,7 @@
 		{
 			update_orders_input();
 			update_orders_button();
+			cart_get_number_of_product();
 		});
 	</script>
 </html>
