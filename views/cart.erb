@@ -8,23 +8,19 @@
 			<th scope="col">Name</th>
 			<th scope="col">Description</th>
 			<th scope="col">Size</th>
-		<!DOCTYPE>	<th scope="col">Amount</th>
+		    <th scope="col">Amount</th>
 			<th scope="col">Price</th>
 			</tr>
 		</thead>
 		<tbody>
-			<% @products.each do |p| %> 
+			<% @items.each.with_index do |p, i| %> 
 				<tr>
-				<th scope="row"><%= p.id %></th>
-				<td><%= p.title %></td>
-				<td><%= p.description %>  </td>
-				<td><%= (p.size).to_i %> cm</td>
-				<td>
-					<button type="button" class="btn btn-sm" onclick="delete_product_in_table(<%= p.id %>)" >-</button>
-					<span id="<%= p.id %>"></span>
-					<button type="button" class="btn btn-sm" onclick="add_to_cart(<%= p.id %>)">+</button>
-				</td>
-				<td><%= (p.price).to_i %> RUB</td>
+				<th scope="row"><%= i+1 %></th>
+				<td><%= p[0].title %></td>
+				<td><%= p[0].description %>  </td>
+				<td><%= (p[0].size).to_i %> cm</td>
+				<td><%= p[0].id %></td>
+				<td><%= (p[0].price).to_i %> RUB</td>
 				<tr>
 			<% end %>
 			<td colspan="4"></td>
@@ -43,7 +39,7 @@
 		<form action="/order" method="POST" role="form">
 			<div class="form-group">
 				<label class="form-label">Your name</label>
-		<!DOCTYPE>		<input type="text" name="order[name]" class="form-control" value="<%= @c.name %>" style="width: 400px;" maxlength="70">
+				<input type="text" name="order[name]" class="form-control" value="<%= @c.name %>" style="width: 400px;" maxlength="70">
 			</div>
 			<div class="form-group">
 				<label class="form-label">Phone number</label>
@@ -52,9 +48,6 @@
 			<div class="form-group">
 				<label  class="form-label">Delivery adress</label>
 				<input type="text" name="order[adress]" class="form-control" value="<%= @c.adress %>" style="width: 400px;" maxlength="200">
-			</div>
-			<div class="form-group">
-				<input type="hidden" id="orders_input" name="order[products_list]" style="width: 400px;" maxlength="200">
 			</div>
 			<button type="submit" class="btn btn-primary" onclick="cart_empty()">Submit</button>
 		</form>
