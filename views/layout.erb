@@ -41,7 +41,8 @@
 			    </ul>  
 			    <ul class="nav navbar-nav navbar-right"/> 
 			      <li>
-			      	<form action="/cart" method="get">
+			      	<form action="/cart" method="post">
+						<input type="hidden" id="orders_input" name="orders">
 						<input id="orders_total" type="submit" class="btn btn-primary btn-lg" value="Cart"/>
 			      	</form>
 			      </li>
