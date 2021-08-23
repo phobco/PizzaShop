@@ -43,7 +43,7 @@ class AddProducts < ActiveRecord::Migration[6.1]
     })
 
     Product.create ({:title => 'New York-Style Pizza',
-      :description => 'Boasting a thin, foldable base with cheese',
+      :description => 'Best New York pizza',
       :price => 300,
       :size => 30,
       :is_spicy => false,
@@ -53,7 +53,7 @@ class AddProducts < ActiveRecord::Migration[6.1]
    })
 
    Product.create ({:title => 'Chicago/Deep-Dish Pizza',
-    :description => 'This style of pizza is banked in a pan',
+    :description => 'Wonderful Chicago pizza',
     :price => 390,
     :size => 30,
     :is_spicy => false,
