@@ -29,6 +29,11 @@ get '/menu' do
   erb :menu
 end
 
+get '/orders_list' do
+  @orders_list = Order.all
+  erb :orders_list
+end  
+
 post '/cart' do
   @orders_input = params[:orders]
   @items = parse_orders_input (@orders_input)
