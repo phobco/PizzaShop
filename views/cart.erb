@@ -13,21 +13,23 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% total_price = 0 %>
 			<% @items.each.with_index do |p, i| %> 
 				<tr>
 				<th scope="row"><%= i+1 %></th>
 				<td><%= p[0].title %></td>
 				<td><%= p[0].description %>  </td>
 				<td><%= (p[0].size).to_i %> cm</td>
-				<td><%= p[0].id %></td>
+				<td><%= p[1] %></td>
 				<td><%= (p[0].price).to_i %> RUB</td>
 				<tr>
+				<% total_price = total_price + (p[0].price.to_i * p[1].to_i) %>
 			<% end %>
 			<td colspan="4"></td>
 			<td >
 				<div style="float:right; width:25%;"><b>Total:</b></div>
 			</td>
-			<td><b>1200 RUB</b></td>
+			<td><b><%= total_price %> RUB</b></td>
 			</tr>
 		</tbody>
 		</table>
