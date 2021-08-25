@@ -40,7 +40,7 @@
 
 		<form action="/order" method="POST" role="form">
 			
-			<input type="hidden" name="" value="<%= @orders_input %>">
+			<input type="hidden" name="order[products_list]" value="<%= @orders_input %>">
 			
 			<div class="form-group">
 				<label class="form-label">Name:</label>
