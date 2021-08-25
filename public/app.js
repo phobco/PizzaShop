@@ -110,3 +110,9 @@ function update_orders_button()
 	var orders = 'Cart (' + cart_get_number_of_items() + ')';
 	$('#orders_total').val(orders);
 }
+
+function cancel_order()
+{
+	alert('Order is canceled');
+	return false;
+}

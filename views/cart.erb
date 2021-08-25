@@ -54,7 +54,8 @@
 				<label  class="form-label">Delivery adress</label>
 				<textarea type="text" name="order[adress]" placeholder="Adress..." class="form-control" value="<%= @c.adress %>" style="width: 400px;" maxlength="200"></textarea>
 			</div>
-			<button type="submit" class="btn btn-success">Submit</button>
+			<button type="submit" class="btn btn-success btn-lg">Place this order</button>
+			<button class="btn btn-danger btn-lg" onclick="return cancel_order()">Cancel</button>
 		</form>
 
 		<script>
