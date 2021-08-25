@@ -38,12 +38,16 @@ post '/cart' do
   @orders_input = params[:orders]
   @items = parse_orders_input (@orders_input)
   
-  @items.each do |item|
-    # item = [id, cnt]
-    item[0] = @products.find(item[0])
+  if @items.empty?
+    erb "Cart is empty."
+  else
+    @items.each do |item|
+      # item = [id, cnt]
+      item[0] = @products.find(item[0])
+    end
+    erb :cart
   end
-
-  erb :cart
+  
 end
   
 post '/order' do 
