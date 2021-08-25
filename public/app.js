@@ -85,22 +85,6 @@ function delete_product_in_table(id)
 	update_orders_input();	
 }
 
-
-function cart_empty()
-{
-	for (var i = 0; i < 5; i++)
-	{
-		var key = window.localStorage.key(i);
-		var value = window.localStorage.getItem(key);
-		
-		if (value > 0)
-		{
-			localStorage.clear();
-		}
-	}	
-}
-
-
 function get_id(id)
 {
 	var key = 'product_' + id;
