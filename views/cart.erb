@@ -1,72 +1,71 @@
 <!DOCTYPE>
 <html>
-	<body>
-		<div id="cart">
-			<%= @items.class%>
-			<table class="table">
+	<div id="cart">
+		<table class="table table-striped">
 			<thead>
 				<tr>
-				<th scope="col">#</th>
-				<th scope="col">Name</th>
-				<th scope="col">Description</th>
-				<th scope="col">Size</th>
-				<th scope="col">Amount</th>
-				<th scope="col">Price</th>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Description</th>
+					<th scope="col">Size</th>
+					<th scope="col">Amount</th>
+					<th scope="col">Price</th>
 				</tr>
 			</thead>
 			<tbody>
-				<% total_price = 0 %>
-				<% @items.each.with_index do |p, i| %> 
-					<tr>
+					<% total_price = 0 %>
+					<% @items.each.with_index do |p, i| %> 
+				<tr>
 					<th scope="row"><%= i+1 %></th>
 					<td><%= p[0].title %></td>
 					<td><%= p[0].description %>  </td>
 					<td><%= (p[0].size).to_i %> cm</td>
 					<td><%= p[1] %></td>
 					<td><%= (p[0].price).to_i %> RUB</td>
-					<tr>
+				</tr>
 					<% total_price = total_price + (p[0].price.to_i * p[1].to_i) %>
-				<% end %>
-				<td colspan="4"></td>
-				<td >
-					<div style="float:right; width:25%;"><b>Total:</b></div>
-				</td>
-				<td><b><%= total_price %> RUB</b></td>
+					<% end %>
+				<tr>
+					<td colspan="4"></td>
+					<td >
+						<div style="float:right; width:25%;"><b>Total:</b></div>
+					</td>
+					<td><b><%= total_price %> RUB</b></td>
 				</tr>
 			</tbody>
-			</table>
+		</table>
 
-			<br />
-				<h3>Confirmation of an order:</h3>
-			<br />
+		<br />
+			<h3>Confirmation of an order:</h3>
+		<br />
 
-			<form action="/order" method="POST" role="form">
+		<form action="/order" method="POST" role="form">
 				
-				<input type="hidden" name="order[products_list]" value="<%= @orders_input %>">
+			<input type="hidden" name="order[products_list]" value="<%= @orders_input %>">
 				
-				<div class="form-group">
-					<label class="form-label">Name:</label>
-					<input type="text" name="order[name]" placeholder="Your name" class="form-control" value="<%= @c.name %>" style="width: 400px;" maxlength="70">
-				</div>
-				<div class="form-group">
-					<label class="form-label">Phone number</label>
-					<input type="text" name="order[phone]" placeholder="Your phone" class="form-control" value="<%= @c.phone %>" style="width: 400px;" maxlength="12">
-				</div>
-				<div class="form-group">
-					<label  class="form-label">Delivery adress</label>
-					<textarea type="text" name="order[adress]" placeholder="Adress..." class="form-control" value="<%= @c.adress %>" style="width: 400px;" maxlength="200"></textarea>
-				</div>
-				<button type="submit" class="btn btn-success btn-lg">Place this order</button>
-				<button class="btn btn-danger btn-lg" onclick="return cancel_order()">Cancel</button>
-			</form>
-		</div>
-		<script>
-		$(function() 
-			{
-				update_orders_input();
-				update_orders_button();
-				cart_get_number_of_product();
-			});
-		</script>
-	</body>
+			<div class="form-group">
+				<label class="form-label">Name:</label>
+				<input type="text" name="order[name]" placeholder="Your name" class="form-control" value="<%= @c.name %>" style="width: 400px;" maxlength="70">
+			</div>
+			<div class="form-group">
+				<label class="form-label">Phone number</label>
+				<input type="text" name="order[phone]" placeholder="Your phone" class="form-control" value="<%= @c.phone %>" style="width: 400px;" maxlength="12">
+			</div>
+			<div class="form-group">
+				<label  class="form-label">Delivery adress</label>
+				<textarea type="text" name="order[adress]" placeholder="Adress..." class="form-control" value="<%= @c.adress %>" style="width: 400px;" maxlength="200"></textarea>
+			</div>
+			<button type="submit" class="btn btn-success btn-lg">Place this order</button>
+			<button class="btn btn-danger btn-lg" onclick="return cancel_order()">Cancel</button>
+		</form>
+	</div>
+	
+	<script>
+	$(function() 
+		{
+			update_orders_input();
+			update_orders_button();
+			cart_get_number_of_product();
+		});
+	</script>
 </html>
