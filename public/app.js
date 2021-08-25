@@ -108,7 +108,7 @@ function update_orders_input()
 function update_orders_button() 
 {
 	var orders = 'Cart (' + cart_get_number_of_items() + ')';
-	$('#orders_total').val(orders);
+	$('#orders_button').val(orders);
 }
 
 function cancel_order()
