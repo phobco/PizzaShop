@@ -29,9 +29,9 @@ get '/menu' do
   erb :menu
 end
 
-get '/orders_list' do
-  @orders_list = Order.all
-  erb :orders_list
+get '/admin' do
+  @orders_list = Order.order("created_at DESC").all
+  erb :admin
 end  
 
 post '/cart' do
