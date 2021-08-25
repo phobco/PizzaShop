@@ -113,6 +113,10 @@ function update_orders_button()
 
 function cancel_order()
 {
-	alert('Order is canceled');
+	window.localStorage.clear();
+
+	update_orders_input();
+	update_orders_button();
+
 	return false;
 }
