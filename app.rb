@@ -11,9 +11,7 @@ class Product < ActiveRecord::Base
 end
 
 class Order < ActiveRecord::Base
-  validates :name, presence: true
-  validates :phone, presence: true
-  validates :adress, presence: true
+  validates :name, :phone, :adress, presence: true
 end
 
 before do
@@ -30,13 +28,13 @@ get '/menu' do
 end
 
 get '/admin' do
-  @orders_list = Order.order("created_at DESC").all
+  @orders_list = Order.order(created_at: :desc)
   erb :admin
 end  
 
 post '/cart' do
   @orders_input = params[:orders]
-  @items = parse_orders_input (@orders_input)
+  @items = parse_orders_input(@orders_input)
   
   if @items.empty?
     erb "Cart is empty."
@@ -46,8 +44,7 @@ post '/cart' do
       item[0] = @products.find(item[0])
     end
     erb :cart
-  end
-  
+  end 
 end
   
 post '/order' do 
@@ -61,23 +58,5 @@ post '/order' do
 end
 
 def parse_orders_input (orders_input)
-  s1 = orders_input.split(",")
-  
-  arr = []
-  
-  s1.each do |item|
-    s2 = item.split("=")
-    
-    s3 = s2[0].split("_")
-
-    id = s3[1]
-    cnt = s2[1]
-    
-    arr_tmp = [id, cnt]
-    
-    if arr_tmp[1] != '0'
-      arr.push arr_tmp
-    end
-  end
-    return arr
+  [orders_input.delete('product_,').split('=')]
 end

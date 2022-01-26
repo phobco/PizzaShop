@@ -25,6 +25,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (13.0.6)
     ripl (0.7.1)
       bond (~> 0.5.1)
     ripl-multi_line (0.3.1)
@@ -64,12 +65,13 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  activerecord
-  sinatra
-  sinatra-activerecord
-  sinatra-contrib
-  sqlite3
-  tux
+  activerecord (~> 6.1.4.1)
+  rake (~> 13.0.6)
+  sinatra (~> 2.1.0)
+  sinatra-activerecord (~> 2.0.23)
+  sinatra-contrib (~> 2.1.0)
+  sqlite3 (~> 1.4.2)
+  tux (~> 0.3.0)
 
 BUNDLED WITH
-   2.2.26
+   2.2.32
