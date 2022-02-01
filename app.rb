@@ -58,5 +58,5 @@ post '/order' do
 end
 
 def parse_orders_input (orders_input)
-  [orders_input.delete('product_,').split('=')]
+  [orders_input.delete('^0-9=').split('=')]
 end
